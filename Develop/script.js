@@ -14,6 +14,18 @@ function writePassword(){
    return;
   };
 
+  passwordRequirements = {
+    lower:false,
+    upper:false,
+    numbers:false,
+    symbols:false,
+  }
+
+  passwordRequirements.lower = confirm("Lowercase?\nOk for Yes\nCancel for No")
+  passwordRequirements.upper = confirm("Uppercase?\nOk for Yes\nCancel for No")
+  passwordRequirements.numbers = confirm("Numbers?\nOk for Yes\nCancel for No")
+  passwordRequirements.symbols = confirm("Symbols?\nOk for Yes\nCancel for No")
+  
 }
 
 generateBtn.addEventListener("click", writePassword);
