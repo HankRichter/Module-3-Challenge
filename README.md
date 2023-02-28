@@ -6,7 +6,7 @@ This password generator is for anyone looking to generate a password with criter
 
 ## Installation
 
-Run the URL of the application:
+Run the URL of the [Password Generator](https://hankrichter.github.io/Module-3-Challenge/)
 
 ## Usage
 
