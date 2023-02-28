@@ -146,6 +146,15 @@ function writePassword() {
     }
   }
 
+  password = password.slice(0, passwordLength);
+
+  var shuffledPassword = password
+    .split("")
+    .sort(function () {
+      return 0.5 - Math.random();
+    })
+    .join("");
+
   document.getElementById("password").value = shuffledPassword;
 }
 
