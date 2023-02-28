@@ -26,6 +26,11 @@ function writePassword(){
   passwordRequirements.numbers = confirm("Numbers?\nOk for Yes\nCancel for No")
   passwordRequirements.symbols = confirm("Symbols?\nOk for Yes\nCancel for No")
   
+  if(!passwordRequirements.lower && !passwordRequirements.upper && !passwordRequirements.numbers && !passwordRequirements.symbols){
+    alert("Password needs some requirements");
+    return;
+  }
+
 }
 
 generateBtn.addEventListener("click", writePassword);
