@@ -31,6 +31,28 @@ function writePassword(){
     return;
   }
 
+  for(var i = 0; i<= passwordLength; i++){
+  var randomNumber = Math.floor(Math.random() * passwordLength.length);
+    if(passwordRequirements.lower){
+          var randomNumber = Math.floor(Math.random() * passwordLower.length);
+          password += passwordLower[randomNumber];
+      }
+
+    if(passwordRequirements.upper){
+          var randomNumber = Math.floor(Math.random() * passwordUpper.length);
+          password += passwordUpper[randomNumber];
+      }
+
+    if(passwordRequirements.numbers){
+          var randomNumber = Math.floor(Math.random() * passwordNumbers.length);
+          password += passwordNumbers[randomNumber];
+      }
+
+    if(passwordRequirements.symbols){
+          var randomNumber = Math.floor(Math.random() * passwordSymbols.length);
+          password += passwordSymbols[randomNumber];
+      }
+    }
 }
 
 generateBtn.addEventListener("click", writePassword);
