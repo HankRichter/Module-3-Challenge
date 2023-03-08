@@ -1,4 +1,4 @@
-// Assignment Code
+// Variables
 var generateBtn = document.querySelector("#generate");
 
 const passwordNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -93,14 +93,18 @@ const passwordSymbols = [
   "~",
 ];
 
+// prompts user for password length
 function writePassword() {
   let password = "";
-  const passwordLength = prompt("Enter password length");
+  const passwordLength = prompt(
+    "Enter password length between 8 and 128 characters"
+  );
   if (!(passwordLength > 7 && passwordLength < 129)) {
-    alert("Password length does not meet requirements");
+    alert("Password must be between 8 and 128 characters");
     return;
   }
 
+  // password object
   passwordRequirements = {
     lower: false,
     upper: false,
@@ -108,6 +112,7 @@ function writePassword() {
     symbols: false,
   };
 
+  //prompts user to select password requirements
   passwordRequirements.lower = confirm("Lowercase?\nOk for Yes\nCancel for No");
   passwordRequirements.upper = confirm("Uppercase?\nOk for Yes\nCancel for No");
   passwordRequirements.numbers = confirm("Numbers?\nOk for Yes\nCancel for No");
@@ -119,10 +124,10 @@ function writePassword() {
     !passwordRequirements.numbers &&
     !passwordRequirements.symbols
   ) {
-    alert("Password needs some requirements");
+    alert("Password needs atleast one of the requirements selected");
     return;
   }
-
+  // for loop to add characters selected by the user
   for (var i = 0; i <= passwordLength; i++) {
     var randomNumber = Math.floor(Math.random() * passwordLength.length);
     if (passwordRequirements.lower) {
@@ -145,9 +150,10 @@ function writePassword() {
       password += passwordSymbols[randomNumber];
     }
   }
-
+  // slices the password generated to desired length
   password = password.slice(0, passwordLength);
 
+  // Shuffles sliced characters
   var shuffledPassword = password
     .split("")
     .sort(function () {
@@ -158,4 +164,5 @@ function writePassword() {
   document.getElementById("password").value = shuffledPassword;
 }
 
+// generates password
 generateBtn.addEventListener("click", writePassword);
